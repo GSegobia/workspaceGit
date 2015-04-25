@@ -95,9 +95,9 @@ public class Main {
 //		String s = Byte.toString(b);
 //		
 //		System.out.println(s);
-		
-		InputOutput.lerArquivo("/home/gsegobia/workspace/ED2/src/arquivos/nomes.txt", "/home/gsegobia/workspace/ED2/src/arquivos/nomes_bytes.dat");
-		InputOutput.encontraNome("/home/gsegobia/workspace/ED2/src/arquivos/nomes_bytes.dat", "João Pereira");
+		System.out.println("oi");
+		//InputOutput.lerArquivo("/home/gsegobia/workspace/ED2/src/arquivos/nomes.txt", "/home/gsegobia/workspace/ED2/src/arquivos/nomes_bytes.dat");
+		//InputOutput.encontraNome("/home/gsegobia/workspace/ED2/src/arquivos/nomes_bytes.dat", "João Pereira");
 	}
 		
 }

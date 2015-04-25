@@ -7,43 +7,44 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
-import java.util.regex.MatchResult;
 
 public class InputOutput {
 	
 	//private static String stringDeBytes(String frase){}
 	
-	public static void encontraNome(String arquivoDat, String nome){
+	public static void encontraNome(String path, String nome){
+	
+		BufferedReader br = null;
+		String finalString=new String();
+		String convertidoNome = new String();
 		
 		byte[] b;
-		Scanner reader;	
-		String base = "";
 		
 		b = ConversorDados.converteString(nome);
-		
+
 		for(int i = 0; i < b.length; i++)
-			if(i != b.length -1)
-				base += Byte.toString(b[i]) + ".";
-			else
-				base += Byte.toString(b[i]);
-		
-		
+			convertidoNome += Byte.toString(b[i]);
+			
+
 		try {
-			reader = new Scanner(new File(arquivoDat));
+			String sCurrentLine;
 			
-			
-			if(reader.findWithinHorizon(base, 0) != null){
-				MatchResult mr = reader.match();
-				System.out.println(nome + " inicia na posição: " + mr.start() + " e termina na posição: " + mr.end());
+			br = new BufferedReader(new FileReader(path));
+ 
+			while ((sCurrentLine = br.readLine()) != null) {
+				if(sCurrentLine.compareTo(convertidoNome)==0){
+					System.out.println("Achei esta caralha");
+					break;
+				}
+						
 			}
-			else
-				System.err.println("-1");
-			
-			reader.close();
+
 		} catch (FileNotFoundException e) {
 
 			e.printStackTrace();
+		}
+		catch (IOException ex) {
+			ex.printStackTrace();
 		}
 		
 		
@@ -73,16 +74,11 @@ public class InputOutput {
 				b = ConversorDados.converteString(sCurrentLine);
 				
 				for(int i = 0; i < b.length; i++){
-					
-					if(i != b.length - 1)
-						bw.write(Byte.toString(b[i]) + ".");
-					else
 						bw.write(Byte.toString(b[i]));
 				}
-				bw.write("*");
+				bw.write("\n");
 			//	System.out.println(sCurrentLine);
 			}
-			bw.write("*");
 			bw.close();
  
 		} catch (IOException e) {
