@@ -1,104 +1,84 @@
 package converterBytes;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.util.ArrayList;
+import java.io.RandomAccessFile;
+
+import converterBytes.InputOutputRAF;
+
 import java.io.IOException;
+
+import ui.MainFrame;
+import metaData.Query;
+import juncao.NestedLoop;
+
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		//float value = 32.5f;
+//		String dat = "/home/gsegobia/workspace/AA_ED2/src/arquivos/Alunos_bytes.dat";
 		
-		//int i = Float.floatToIntBits(value);
-		
-		//float j;
-		
-		//j = Float.intBitsToFloat(i);
-		
-		//System.out.println(j);
+//		InputOutputRAF.converter("/home/gsegobia/workspace/AA_ED2/src/arquivos/Alunos.txt", "/home/gsegobia/workspace/AA_ED2/src/arquivos/Alunos_bytes.dat");
+//		InputOutputRAF.converter("/home/gsegobia/workspace/AA_ED2/src/arquivos/Cursos.txt", "/home/gsegobia/workspace/AA_ED2/src/arquivos/Cursos_bytes.dat");
+//		InputOutputRAF.converter("/home/gsegobia/workspace/AA_ED2/src/arquivos/DisciplinaHistorico.txt", "/home/gsegobia/workspace/AA_ED2/src/arquivos/DisciplinaHistorico_bytes.dat");
+//		InputOutputRAF.converter("/home/gsegobia/workspace/AA_ED2/src/arquivos/Disciplinas.txt", "/home/gsegobia/workspace/AA_ED2/src/arquivos/Disciplinas_bytes.dat");
+
+//		String s = "";
+//		int contador = 0;
+//
 //		
-//	
-//		byte d[];
-//		String c = "Antônio";
-//		String s;
-//		String j = "";
-//		
-//		
-//		d = ConversorDados.converteString(c);
-//		s = ConversorDados.byteParaString(d);
-//		
-//		for(int i = 0; i < d.length; i++)
-//			System.out.print(d[i]);
-//		System.out.println();
-//		for(int i = 0; i < d.length; i++)
-//			j += Byte.toString(d[i]);
-//		
-//		System.out.println(j);
-//	
-//		System.out.println(s);
-//		
-//		
-//		c = ConversorDados.byteParaChar(b);
-//		
-//		System.out.println(c);
-//		
-//		float f = 35.2f;
-//		byte b[];
-//		float g;
-//		
-//		b = ConversorDados.converteFloat(f);
-//		g = ConversorDados.byteParaFloat(b);
-//		
-//		System.out.println(g);
-//	char c = 2048;
-//		
-//		String frase = "" + c;
-//		
-//		byte []b;
-//		
-//		b = ConversorDados.converteString(frase);
-//		String s = ConversorDados.byteParaString(b);
-//		
-//		System.out.println(b.length);
-//		
-//		System.out.println(b[0]);
-//		System.out.println(s);
-//		
-//		try {
-//			 
-//			String content = "This is the content to write into file";
-// 
-//			File file = new File("/run/media/gsegobia/data/filename.dat");
-// 
-//			// if file doesnt exists, then create it
-//			if (!file.exists()) {
-//				file.createNewFile();
+//		try{
+//			
+//			RandomAccessFile raf = new RandomAccessFile("/home/gsegobia/workspace/AA_ED2/src/arquivos/Alunos_bytes.dat", "r");
+//			String base = "";
+//			while(raf.getFilePointer() < raf.length()){
+//				
+//				contador++;
+//				base = raf.readUTF();
+//				s = base.substring(0, base.length() - 1);
+//				System.out.println(s);	
+//				
+//				if(contador == 100)
+//					break;
 //			}
-// 
-//			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-//			BufferedWriter bw = new BufferedWriter(fw);
-//			bw.write(content);
-//			bw.close();
-// 
-//			System.out.println("Done");
-// 
-//		} catch (IOException e) {
+//			
+//			System.out.println(contador);
+//			
+//			raf.close();
+//		}
+//		catch(IOException e){
+//			
 //			e.printStackTrace();
 //		}
-//		byte[] b = new byte[3];
-//		b[0] = (byte) 5;
-//		b[1] = (byte) 6;
-//		b[2] = (byte) 7;
-	//	Byte c = b[0];
-//		String s = Byte.toString(b);
-//		
-//		System.out.println(s);
-		System.out.println("oi");
-		//InputOutput.lerArquivo("/home/gsegobia/workspace/ED2/src/arquivos/nomes.txt", "/home/gsegobia/workspace/ED2/src/arquivos/nomes_bytes.dat");
-		//InputOutput.encontraNome("/home/gsegobia/workspace/ED2/src/arquivos/nomes_bytes.dat", "João Pereira");
-	}
 		
+
+//		
+//		ArrayList<Query> q = InputOutputRAF.searchCol("/home/gsegobia/workspace/AA_ED2/src/arquivos/Alunos_bytes.dat", "2002113902", 3);
+//		
+//		System.out.println(q.size());
+//		
+//		System.out.println(q.get(7).dados[0]);
+		
+//		System.out.println(a.get(0).dados[0]);
+		
+//		System.out.println(InputOutputRAF.findFirst("D:/GitHub/java-dev/ED2/src/arquivos/Alunos_bytes.dat","2007113902"));
+//		String dat = "/home/gsegobia/workspace/AA_ED2/src/arquivos/Disciplinas_bytes.dat";
+//		
+//		ArrayList<Query> a = InputOutputRAF.searchCol(dat,"1",3);
+//		
+//		System.out.println(a.get(0).dados[1]);
+		
+//		String tabela1 = "D:/GitHub/workspaceGit/ED2/src/arquivos/Alunos_bytes.dat";
+//		String tabela2 = "D:/GitHub/workspaceGit/ED2/src/arquivos/Cursos_bytes.dat";		
+//		
+//		NestedLoop.busca(tabela1, tabela2, 1, 0);
+//					
+//		ArrayList<Query> q = InputOutputRAF.findTuplas("D:/GitHub/workspaceGit/ED2/src/temporarios/temp.dat", "ADMINISTRACAO");
+//
+//		System.out.println(q.size());
+		
+		MainFrame frame = new MainFrame();
+		
+	}
 }
 
