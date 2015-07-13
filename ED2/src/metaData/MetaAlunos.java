@@ -1,0 +1,41 @@
+package metaData;
+
+import java.util.HashMap;
+import java.util.Map;
+	
+public class MetaAlunos extends Metadado{
+	
+	private static Map<String, Integer> dados = new HashMap<String, Integer>();
+	private static int []posicao;
+	private static String []colunas;
+
+	static{
+		
+		Map<String, Integer> aMap = new HashMap<String, Integer>();
+		
+		
+		aMap.put("id", 0);
+		aMap.put("curso_id", 1);
+		aMap.put("matricula", 2);
+		aMap.put("nome", 3);
+		
+		dados = aMap;		
+	}
+	
+	static{
+		
+		int []aInt = {308, 581, 853, 1153, 1452, 1721, 2000};
+		posicao = aInt;
+	}
+	
+	static{
+		
+		String []col = {"id", "curso_id", "matricula", "nome"};
+		colunas = col;
+	}
+	
+	public MetaAlunos(){
+
+		super(4, 2000, dados, true, "curso_id", posicao, colunas);
+	}
+}
